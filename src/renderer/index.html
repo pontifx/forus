@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    Content Security Policy for Electron.
+    - default-src 'self': Only load resources from the app bundle.
+    - style-src 'self' 'unsafe-inline' fonts.googleapis.com: Allow Google Fonts and inline styles.
+    - font-src fonts.gstatic.com: Allow Google Font files.
+    - script-src 'self': Only app scripts (no inline scripts, no remote scripts).
+    - connect-src *: Allow WebRTC and future network connections from the engine.
+    - img-src 'self' data:: Allow app images and data URIs.
+  -->
+  <meta http-equiv="Content-Security-Policy"
+    content="
+      default-src 'self';
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src https://fonts.gstatic.com;
+      script-src 'self';
+      connect-src *;
+      img-src 'self' data:;
+    ">
+
+  <title>Forus — High-Fidelity Voice</title>
+  <meta name="description" content="A Discord alternative built for audiophiles. Lossless voice channels with FLAC and Opus codec support.">
+
+  <!-- Google Fonts: Space Grotesk + Outfit + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./base.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <a href="#main-content" class="sr-only" style="position:fixed;top:0;left:0;z-index:9999;background:var(--color-primary);color:var(--color-text-inverse);padding:var(--space-2) var(--space-4);border-radius:0 0 var(--radius-md) 0;">Skip to content</a>
+
+  <div class="app" id="app">
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
+    <nav class="server-sidebar" aria-label="Servers">
+      <svg class="logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Forus">
+        <rect x="2" y="2" width="32" height="32" rx="8" fill="currentColor" opacity="0.12"/>
+        <path d="M11 11h14v3H14.5v3.5H23v3H14.5V26H11V11Z" fill="currentColor"/>
+      </svg>
+      <div class="server-divider"></div>
+      <div id="server-list"></div>
+    </nav>
+
+    <aside class="channel-sidebar" id="channel-sidebar" aria-label="Channels"></aside>
+    <main class="main-content" id="main-content"></main>
+    <footer class="user-bar" id="user-bar"></footer>
+    <div class="bottom-spacer"></div>
+  </div>
+
+  <!-- Discord Migration Wizard Modal -->
+  <div class="migration-overlay" id="migration-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Import from Discord">
+    <div class="migration-modal" id="migration-modal">
+      <div class="migration-stepper">
+        <div class="migration-step active" data-step-indicator="1">
+          <div class="step-circle">1</div>
+          <span class="step-label">Connect</span>
+        </div>
+        <div class="step-connector"></div>
+        <div class="migration-step" data-step-indicator="2">
+          <div class="step-circle">2</div>
+          <span class="step-label">Select</span>
+        </div>
+        <div class="step-connector"></div>
+        <div class="migration-step" data-step-indicator="3">
+          <div class="step-circle">3</div>
+          <span class="step-label">Configure</span>
+        </div>
+        <div class="step-connector"></div>
+        <div class="migration-step" data-step-indicator="4">
+          <div class="step-circle">4</div>
+          <span class="step-label">Import</span>
+        </div>
+      </div>
+      <button class="migration-close" id="migration-close" aria-label="Close migration wizard">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="migration-content" id="migration-content"></div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+  <script src="./renderer-bridge.js"></script>
+</body>
+</html>
