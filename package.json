@@ -1,0 +1,22 @@
+{
+  "name": "forus",
+  "version": "0.1.0",
+  "description": "High-fidelity voice for audiophiles",
+  "main": "src/main/main.js",
+  "author": "Forus Audio",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "node scripts/dev.js",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "dependencies": {
+    "electron-updater": "^6.3.0"
+  }
+}

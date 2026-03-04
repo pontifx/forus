@@ -1,0 +1,26 @@
+appId: studio.forus.app
+productName: Forus
+directories:
+  output: dist
+  buildResources: assets
+files:
+  - src/**/*
+  - assets/**/*
+  - package.json
+mac:
+  category: public.app-category.social-networking
+  icon: assets/icon.png
+  target:
+    - dmg
+    - zip
+win:
+  icon: assets/icon.png
+  target:
+    - nsis
+    - portable
+linux:
+  icon: assets/icon.png
+  target:
+    - AppImage
+    - deb
+  category: Network
