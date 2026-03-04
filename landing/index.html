@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forus — Audio-first communication</title>
+  <meta name="description" content="Lossless voice channels. Per-stream EQ. A built-in mixer for every room. Finally, voice chat that sounds like it should.">
+
+  <!-- Google Fonts: Space Grotesk + Outfit + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lenis smooth scroll -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
+
+  <link rel="stylesheet" href="./base.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./page.css">
+</head>
+<body>
+  <!-- Skip to content -->
+  <a href="#main" class="sr-only" style="position:fixed;top:var(--space-2);left:var(--space-2);z-index:1000;background:var(--color-primary);color:#fff;padding:var(--space-2) var(--space-4);border-radius:var(--radius-md);">Skip to content</a>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="Forus Home">
+        <svg class="logo-mark" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="6" fill="currentColor" opacity="0.1"/>
+          <path d="M10 8h12v3H13.5v4H20v3h-6.5v7H10V8z" fill="currentColor"/>
+        </svg>
+        <span class="nav-wordmark">Forus</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#specs">Specs</a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+
+      <div class="nav-actions">
+        <button data-theme-toggle aria-label="Switch to light mode" class="theme-toggle">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- ===================== SECTION 1: HERO ===================== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <canvas id="hero-waveform" aria-hidden="true"></canvas>
+        <div class="hero-noise" aria-hidden="true"></div>
+        <div class="hero-gradient" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero-content">
+        <h1 class="hero-headline fade-in">Audio-first<br>communication.</h1>
+        <p class="hero-sub fade-in">Lossless voice channels. Per-stream EQ. A built-in mixer for every room.<br class="hide-mobile"> Finally, voice chat that sounds like it should.</p>
+        <div class="hero-actions fade-in">
+          <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
+          <a href="#prototype" class="hero-link">View the Prototype <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="hero-spectrum fade-in" aria-hidden="true">
+        <div class="spectrum-line"></div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 2: THE PROBLEM ===================== -->
+    <section class="section problem" id="problem">
+      <div class="section-inner">
+        <div class="problem-layout">
+          <div class="problem-text">
+            <p class="section-label fade-in">The Problem</p>
+            <h2 class="section-heading fade-in">128kbps&nbsp;Opus. No&nbsp;EQ. No&nbsp;mix control.</h2>
+            <p class="problem-body fade-in">Every voice platform treats audio as an afterthought. We built Forus because we were tired of hearing our music through a wall.</p>
+          </div>
+
+          <div class="problem-compare fade-in">
+            <div class="compare-card compare-them">
+              <div class="compare-label">Other Platforms</div>
+              <ul class="compare-list" role="list">
+                <li><span class="compare-icon compare-bad" aria-hidden="true">&times;</span> 128kbps Opus</li>
+                <li><span class="compare-icon compare-bad" aria-hidden="true">&times;</span> No EQ controls</li>
+                <li><span class="compare-icon compare-bad" aria-hidden="true">&times;</span> No per-user mixing</li>
+                <li><span class="compare-icon compare-bad" aria-hidden="true">&times;</span> No codec selection</li>
+              </ul>
+            </div>
+
+            <div class="compare-card compare-us">
+              <div class="compare-label">Forus</div>
+              <ul class="compare-list" role="list">
+                <li><span class="compare-icon compare-good" aria-hidden="true">&#10003;</span> FLAC 24-bit / 96kHz</li>
+                <li><span class="compare-icon compare-good" aria-hidden="true">&#10003;</span> 3-band parametric EQ</li>
+                <li><span class="compare-icon compare-good" aria-hidden="true">&#10003;</span> Full channel mixer</li>
+                <li><span class="compare-icon compare-good" aria-hidden="true">&#10003;</span> Codec + bitrate control</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 3: FEATURES ===================== -->
+    <section class="section features" id="features">
+      <div class="section-inner">
+        <p class="section-label fade-in">Core Features</p>
+
+        <!-- Feature 1: Lossless Voice -->
+        <div class="feature-block feature-lossless fade-in">
+          <div class="feature-text">
+            <h2 class="feature-heading">FLAC in every room.</h2>
+            <p class="feature-desc">Choose your codec — FLAC, ALAC, Opus 320k, or AAC. Set bitrate, sample rate, and buffer size per channel. Monitor latency in real time. Every participant shows a live audio quality badge: codec, bitrate, sample rate, all visible at a glance.</p>
+          </div>
+          <div class="feature-visual audio-panel">
+            <div class="panel-card">
+              <div class="panel-header">
+                <span class="panel-dot panel-dot-green" aria-hidden="true"></span>
+                <span class="panel-title">Voice Channel — Studio A</span>
+              </div>
+              <div class="panel-body">
+                <div class="panel-row">
+                  <span class="panel-label">Codec</span>
+                  <span class="panel-value panel-value-primary">FLAC</span>
+                </div>
+                <div class="panel-row">
+                  <span class="panel-label">Sample Rate</span>
+                  <span class="panel-value">96 kHz</span>
+                </div>
+                <div class="panel-row">
+                  <span class="panel-label">Bit Depth</span>
+                  <span class="panel-value">24-bit</span>
+                </div>
+                <div class="panel-row">
+                  <span class="panel-label">Latency</span>
+                  <span class="panel-value panel-value-success">11.4ms</span>
+                </div>
+                <div class="panel-row">
+                  <span class="panel-label">Buffer</span>
+                  <span class="panel-value">256 samples</span>
+                </div>
+              </div>
+              <div class="panel-users">
+                <div class="panel-user">
+                  <span class="user-avatar" aria-hidden="true">K</span>
+                  <span class="user-name">kai_audio</span>
+                  <span class="user-badge">FLAC 24/96</span>
+                </div>
+                <div class="panel-user">
+                  <span class="user-avatar user-avatar-amber" aria-hidden="true">M</span>
+                  <span class="user-name">mix_engineer</span>
+                  <span class="user-badge user-badge-amber">Opus 320k</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 2: Channel Mixer (most visual real estate) -->
+        <div class="feature-block feature-mixer fade-in">
+          <div class="feature-text">
+            <h2 class="feature-heading">Mix the room like a session.</h2>
+            <p class="feature-desc">Every participant is a track. Per-user channel strips with 3-band EQ, high-pass and low-pass filters with resonance, pan control, solo and mute, channel faders, a master crossfader, and record-to-file. Treat every voice channel like a mixing console.</p>
+          </div>
+
+          <div class="feature-visual mixer-visual">
+            <div class="mixer-console">
+              <!-- Channel strips -->
+              <div class="mixer-strip" data-channel="1">
+                <span class="strip-name">kai_audio</span>
+                <div class="strip-eq">
+                  <div class="eq-knob" aria-label="High EQ">
+                    <div class="knob-body"><div class="knob-indicator" style="transform: rotate(-30deg)"></div></div>
+                    <span class="knob-label">HI</span>
+                  </div>
+                  <div class="eq-knob" aria-label="Mid EQ">
+                    <div class="knob-body"><div class="knob-indicator" style="transform: rotate(15deg)"></div></div>
+                    <span class="knob-label">MID</span>
+                  </div>
+                  <div class="eq-knob" aria-label="Low EQ">
+                    <div class="knob-body"><div class="knob-indicator" style="transform: rotate(-10deg)"></div></div>
+                    <span class="knob-label">LO</span>
+                  </div>
+                </div>
+                <div class="strip-pan">
+                  <div class="pan-track"><div class="pan-thumb" style="left: 55%"></div></div>
+                </div>
+                <div class="strip-buttons">
+                  <button class="strip-btn strip-solo" aria-label="Solo">S</button>
+                  <button class="strip-btn strip-mute" aria-label="Mute">M</button>
+                </div>
+                <div class="strip-meter">
+                  <div class="meter-fill meter-anim-1" aria-hidden="true"></div>
+                </div>
+                <div class="strip-fader">
+                  <div class="fader-track"><div class="fader-thumb" style="bottom: 72%"></div></div>
+                </div>
+              </div>
+
+              <div class="mixer-strip" data-channel="2">
+                <span class="strip-name">mix_eng</span>
+                <div class="strip-eq">
+                  <div class="eq-knob"><div class="knob-body"><div class="knob-indicator" style="transform: rotate(20deg)"></div></div><span class="knob-label">HI</span></div>
+                  <div class="eq-knob"><div class="knob-body"><div class="knob-indicator" style="transform: rotate(-5deg)"></div></div><span class="knob-label">MID</span></div>
+                  <div class="eq-knob"><div class="knob-body"><div class="knob-indicator" style="transform: rotate(30deg)"></div></div><span class="knob-label">LO</span></div>
+                </div>
+                <div class="strip-pan"><div class="pan-track"><div class="pan-thumb" style="left: 35%"></div></div></div>
+                <div class="strip-buttons">
+                  <button class="strip-btn strip-solo" aria-label="Solo">S</button>
+                  <button class="strip-btn strip-mute" aria-label="Mute">M</button>
+                </div>
+                <div class="strip-meter"><div class="meter-fill meter-anim-2" aria-hidden="true"></div></div>
+                <div class="strip-fader"><div class="fader-track"><div class="fader-thumb" style="bottom: 60%"></div></div></div>
+              </div>
+
+              <div class="mixer-strip" data-channel="3">
+                <span class="strip-name">vinyl_dj</span>
+                <div class="strip-eq">
+                  <div class="eq-knob"><div class="knob-body"><div class="knob-indicator" style="transform: rotate(-20deg)"></div></div><span class="knob-label">HI</span></div>
+                  <div class="eq-knob"><div class="knob-body"><div class="knob-indicator" style="transform: rotate(0deg)"></div></div><span class="knob-label">MID</span></div>
+                  <div class="eq-knob"><div class="knob-body"><div class="knob-indicator" style="transform: rotate(25deg)"></div></div><span class="knob-label">LO</span></div>
+                </div>
+                <div class="strip-pan"><div class="pan-track"><div class="pan-thumb" style="left: 50%"></div></div></div>
+                <div class="strip-buttons">
+                  <button class="strip-btn strip-solo active-solo" aria-label="Solo active">S</button>
+                  <button class="strip-btn strip-mute" aria-label="Mute">M</button>
+                </div>
+                <div class="strip-meter"><div class="meter-fill meter-anim-3" aria-hidden="true"></div></div>
+                <div class="strip-fader"><div class="fader-track"><div class="fader-thumb" style="bottom: 80%"></div></div></div>
+              </div>
+
+              <div class="mixer-strip mixer-strip-dim" data-channel="4">
+                <span class="strip-name">producer_</span>
+                <div class="strip-eq">
+                  <div class="eq-knob"><div class="knob-body"><div class="knob-indicator" style="transform: rotate(0deg)"></div></div><span class="knob-label">HI</span></div>
+                  <div class="eq-knob"><div class="knob-body"><div class="knob-indicator" style="transform: rotate(0deg)"></div></div><span class="knob-label">MID</span></div>
+                  <div class="eq-knob"><div class="knob-body"><div class="knob-indicator" style="transform: rotate(0deg)"></div></div><span class="knob-label">LO</span></div>
+                </div>
+                <div class="strip-pan"><div class="pan-track"><div class="pan-thumb" style="left: 50%"></div></div></div>
+                <div class="strip-buttons">
+                  <button class="strip-btn strip-solo" aria-label="Solo">S</button>
+                  <button class="strip-btn strip-mute active-mute" aria-label="Mute active">M</button>
+                </div>
+                <div class="strip-meter"><div class="meter-fill" style="height: 0%" aria-hidden="true"></div></div>
+                <div class="strip-fader"><div class="fader-track"><div class="fader-thumb" style="bottom: 0%"></div></div></div>
+              </div>
+
+              <!-- Master / crossfader section -->
+              <div class="mixer-master">
+                <span class="strip-name">MASTER</span>
+                <div class="master-vu">
+                  <div class="vu-bar vu-l"><div class="vu-fill vu-anim-l" aria-hidden="true"></div></div>
+                  <div class="vu-bar vu-r"><div class="vu-fill vu-anim-r" aria-hidden="true"></div></div>
+                </div>
+                <div class="master-fader">
+                  <div class="fader-track"><div class="fader-thumb" style="bottom: 75%"></div></div>
+                </div>
+                <div class="master-crossfader">
+                  <span class="cf-label">A</span>
+                  <div class="cf-track"><div class="cf-thumb" style="left: 50%"></div></div>
+                  <span class="cf-label">B</span>
+                </div>
+                <button class="rec-btn" aria-label="Record to file">
+                  <span class="rec-dot" aria-hidden="true"></span> REC
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 3: Built for Ears -->
+        <div class="feature-block feature-ui fade-in">
+          <div class="feature-text">
+            <h2 class="feature-heading">UI designed like equipment.</h2>
+            <p class="feature-desc">Spectrum analyzers, VU meters, audio quality badges on every user. A dark interface that respects your eyes during late-night sessions. Every element is functional, nothing is decorative. Built for ears, displayed for eyes.</p>
+          </div>
+          <div class="feature-visual ui-elements">
+            <div class="ui-cluster">
+              <!-- Mini spectrum -->
+              <div class="ui-widget spectrum-widget">
+                <div class="widget-label">Spectrum</div>
+                <div class="mini-spectrum" aria-hidden="true">
+                  <div class="spec-bar spec-b1"></div>
+                  <div class="spec-bar spec-b2"></div>
+                  <div class="spec-bar spec-b3"></div>
+                  <div class="spec-bar spec-b4"></div>
+                  <div class="spec-bar spec-b5"></div>
+                  <div class="spec-bar spec-b6"></div>
+                  <div class="spec-bar spec-b7"></div>
+                  <div class="spec-bar spec-b8"></div>
+                  <div class="spec-bar spec-b9"></div>
+                  <div class="spec-bar spec-b10"></div>
+                  <div class="spec-bar spec-b11"></div>
+                  <div class="spec-bar spec-b12"></div>
+                </div>
+              </div>
+              <!-- Mini VU meter -->
+              <div class="ui-widget vu-widget">
+                <div class="widget-label">VU Meter</div>
+                <div class="mini-vu" aria-hidden="true">
+                  <div class="vu-segment vu-seg-1"></div>
+                  <div class="vu-segment vu-seg-2"></div>
+                  <div class="vu-segment vu-seg-3"></div>
+                  <div class="vu-segment vu-seg-4"></div>
+                  <div class="vu-segment vu-seg-5"></div>
+                  <div class="vu-segment vu-seg-6"></div>
+                  <div class="vu-segment vu-seg-7"></div>
+                  <div class="vu-segment vu-seg-8"></div>
+                  <div class="vu-segment vu-seg-9"></div>
+                  <div class="vu-segment vu-seg-10"></div>
+                </div>
+              </div>
+              <!-- Quality badge -->
+              <div class="ui-widget badge-widget">
+                <div class="widget-label">Quality Badge</div>
+                <div class="quality-badge-demo">
+                  <span class="qb-codec">FLAC</span>
+                  <span class="qb-sep" aria-hidden="true">·</span>
+                  <span class="qb-detail">24-bit</span>
+                  <span class="qb-sep" aria-hidden="true">·</span>
+                  <span class="qb-detail">96kHz</span>
+                </div>
+              </div>
+              <!-- Latency indicator -->
+              <div class="ui-widget latency-widget">
+                <div class="widget-label">Latency</div>
+                <div class="latency-demo">
+                  <span class="latency-dot" aria-hidden="true"></span>
+                  <span class="latency-val">12ms</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 4: SPECS ===================== -->
+    <section class="section specs" id="specs">
+      <div class="section-inner">
+        <p class="section-label fade-in">Technical Specifications</p>
+        <h2 class="section-heading fade-in" style="margin-bottom: var(--space-12);">Every detail, specified.</h2>
+
+        <div class="specs-grid fade-in">
+          <div class="spec-item">
+            <span class="spec-key">Codecs</span>
+            <span class="spec-val">FLAC, ALAC, Opus, AAC</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-key">Sample Rates</span>
+            <span class="spec-val">44.1 / 48 / 88.2 / 96 kHz</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-key">Bit Depth</span>
+            <span class="spec-val">16 / 24 / 32-bit float</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-key">Latency</span>
+            <span class="spec-val">&lt; 15ms</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-key">EQ</span>
+            <span class="spec-val">3-band parametric per channel</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-key">Filters</span>
+            <span class="spec-val">HPF / LPF with resonance</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-key">Mixer</span>
+            <span class="spec-val">Up to 32 channel strips</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-key">Recording</span>
+            <span class="spec-val">Mix-down to FLAC / WAV</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-key">Platforms</span>
+            <span class="spec-val">macOS, Windows, Linux, iOS, Android</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 5: WAITLIST CTA ===================== -->
+    <section class="section waitlist" id="waitlist">
+      <div class="section-inner waitlist-inner">
+        <h2 class="waitlist-heading fade-in">Hear the difference.</h2>
+        <form class="waitlist-form fade-in" onsubmit="event.preventDefault(); document.querySelector('.waitlist-success').style.display='flex'; this.style.display='none';">
+          <div class="waitlist-input-group">
+            <label for="waitlist-email" class="sr-only">Email address</label>
+            <input type="email" id="waitlist-email" placeholder="you@example.com" required autocomplete="email">
+            <button type="submit" class="btn-primary waitlist-btn">Join</button>
+          </div>
+        </form>
+        <div class="waitlist-success" style="display:none;">
+          <span class="success-check" aria-hidden="true">&#10003;</span>
+          <span>You're on the list. We'll be in touch.</span>
+        </div>
+        <p class="waitlist-note fade-in">Free during beta. No credit card.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg class="logo-mark" width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 8h12v3H13.5v4H20v3h-6.5v7H10V8z" fill="currentColor"/>
+        </svg>
+        <span class="footer-copy">&copy; 2026 Forus Audio</span>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#features">Features</a>
+        <a href="#specs">Specs</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">Blog</a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="mailto:contact@forus.audio">Contact</a>
+      </nav>
+      <div class="footer-social">
+        <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="Follow on X">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Join on Discord">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/></svg>
+        </a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lenis -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
+  <script src="./app.js" defer></script>
+</body>
+</html>

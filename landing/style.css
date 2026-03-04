@@ -1,0 +1,184 @@
+/* ============================================
+   FORUS DESIGN SYSTEM
+   Custom dark palette for audiophile UI.
+   Dark is default and the star.
+   ============================================ */
+
+/* --- Type Scale (fluid) --- */
+:root {
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.9rem  + 0.5vw,  1.125rem);
+  --text-lg:   clamp(1.125rem, 0.95rem + 0.85vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1rem    + 1.5vw,  2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+  --text-hero: clamp(3rem,     0.5rem  + 7vw,    8rem);
+
+  /* --- 4px Spacing System --- */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* --- Radius --- */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* --- Transitions --- */
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* --- Content widths --- */
+  --content-narrow: 640px;
+  --content-default: 960px;
+  --content-wide: 1200px;
+  --content-full: 100%;
+
+  /* --- Font families --- */
+  --font-display: 'Space Grotesk', 'Helvetica Neue', sans-serif;
+  --font-body: 'Outfit', 'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* ============================================
+   LIGHT MODE
+   ============================================ */
+:root, [data-theme="light"] {
+  /* --- Surfaces --- */
+  --color-bg:             #f0f0f2;
+  --color-surface:        #e8e8eb;
+  --color-surface-2:      #dfdfe3;
+  --color-surface-offset: #d8d8dc;
+  --color-surface-offset-2: #d0d0d5;
+  --color-surface-dynamic: #c8c8cd;
+  --color-divider:        #c0c0c6;
+  --color-border:         #b8b8bf;
+
+  /* --- Text --- */
+  --color-text:           #18181b;
+  --color-text-muted:     #52525b;
+  --color-text-faint:     #a1a1aa;
+  --color-text-inverse:   #e4e4e7;
+
+  /* --- Primary Accent (Muted Teal — VU meter glass) --- */
+  --color-primary:        #2d7f85;
+  --color-primary-hover:  #236a6f;
+  --color-primary-active: #1a5559;
+  --color-primary-highlight: #d0e8ea;
+
+  /* --- Secondary Accent (Warm Amber — vacuum tube glow) --- */
+  --color-amber:          #b5740f;
+  --color-amber-hover:    #975f08;
+  --color-amber-active:   #7a4b05;
+  --color-amber-highlight: #eedcc0;
+
+  /* --- Semantic: Success --- */
+  --color-success:        #4a8a33;
+  --color-success-hover:  #3a7025;
+  --color-success-highlight: #d5e6ce;
+
+  /* --- Semantic: Error --- */
+  --color-error:          #b84444;
+  --color-error-hover:    #9b3636;
+  --color-error-highlight: #ebcfcf;
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 1px 2px oklch(0.2 0.01 260 / 0.06);
+  --shadow-md: 0 4px 12px oklch(0.2 0.01 260 / 0.08);
+  --shadow-lg: 0 12px 32px oklch(0.2 0.01 260 / 0.12);
+}
+
+/* ============================================
+   DARK MODE (the star)
+   ============================================ */
+[data-theme="dark"] {
+  /* --- Surfaces (near-blacks) --- */
+  --color-bg:             #0a0a0c;
+  --color-surface:        #0d0d0f;
+  --color-surface-2:      #131316;
+  --color-surface-offset: #18181b;
+  --color-surface-offset-2: #1e1e22;
+  --color-surface-dynamic: #27272a;
+  --color-divider:        #2a2a2e;
+  --color-border:         #3f3f46;
+
+  /* --- Text (soft whites) --- */
+  --color-text:           #e4e4e7;
+  --color-text-muted:     #a1a1aa;
+  --color-text-faint:     #71717a;
+  --color-text-inverse:   #18181b;
+
+  /* --- Primary Accent (Muted Teal — VU meter glass) --- */
+  --color-primary:        #3b9ea5;
+  --color-primary-hover:  #4db8c0;
+  --color-primary-active: #2d8089;
+  --color-primary-highlight: #1a2e30;
+
+  /* --- Secondary Accent (Warm Amber — vacuum tube glow) --- */
+  --color-amber:          #c4841d;
+  --color-amber-hover:    #d9962e;
+  --color-amber-active:   #a86e12;
+  --color-amber-highlight: #2e2315;
+
+  /* --- Semantic: Success --- */
+  --color-success:        #5a9a3e;
+  --color-success-hover:  #6daa50;
+  --color-success-highlight: #1e2e16;
+
+  /* --- Semantic: Error --- */
+  --color-error:          #c75050;
+  --color-error-hover:    #d96666;
+  --color-error-highlight: #2e1a1a;
+
+  /* --- Shadows (deeper for dark) --- */
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.3);
+  --shadow-md: 0 4px 12px oklch(0 0 0 / 0.4);
+  --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.5);
+}
+
+/* System preference fallback (when no data-theme is set) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg:             #0a0a0c;
+    --color-surface:        #0d0d0f;
+    --color-surface-2:      #131316;
+    --color-surface-offset: #18181b;
+    --color-surface-offset-2: #1e1e22;
+    --color-surface-dynamic: #27272a;
+    --color-divider:        #2a2a2e;
+    --color-border:         #3f3f46;
+    --color-text:           #e4e4e7;
+    --color-text-muted:     #a1a1aa;
+    --color-text-faint:     #71717a;
+    --color-text-inverse:   #18181b;
+    --color-primary:        #3b9ea5;
+    --color-primary-hover:  #4db8c0;
+    --color-primary-active: #2d8089;
+    --color-primary-highlight: #1a2e30;
+    --color-amber:          #c4841d;
+    --color-amber-hover:    #d9962e;
+    --color-amber-active:   #a86e12;
+    --color-amber-highlight: #2e2315;
+    --color-success:        #5a9a3e;
+    --color-success-hover:  #6daa50;
+    --color-success-highlight: #1e2e16;
+    --color-error:          #c75050;
+    --color-error-hover:    #d96666;
+    --color-error-highlight: #2e1a1a;
+    --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.3);
+    --shadow-md: 0 4px 12px oklch(0 0 0 / 0.4);
+    --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.5);
+  }
+}
